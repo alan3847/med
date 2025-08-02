@@ -127,13 +127,6 @@ def get_patient_identifiers_from_cropped_files(folder):
 
 class ImageCropper(object):
     def __init__(self, num_threads, output_folder=None):
-        """
-        This one finds a mask of nonzero elements (must be nonzero in all modalities) and crops the image to that mask.
-        In the case of BRaTS and ISLES data this results in a significant reduction in image size
-        :param num_threads:
-        :param output_folder: whete to store the cropped data
-        :param list_of_files:
-        """
         self.output_folder = output_folder
         self.num_threads = num_threads
 

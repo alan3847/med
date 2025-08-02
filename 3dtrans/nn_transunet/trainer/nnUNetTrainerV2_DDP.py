@@ -281,9 +281,6 @@ class nnUNetTrainerV2_DDP(nnUNetTrainerV2):
 
             self.setup_DA_params()
 
-            if self.args.config.find('500Region') != -1: # BraTSRegions_moreDA
-                self.setup_DA_params_BraTSRegions()
-
             
             if hasattr(self.args, 'deep_supervision_scales') and len(self.args.deep_supervision_scales)>0:
                 self.deep_supervision_scales = self.args.deep_supervision_scales # overwrite setup_DA_params() from nnUNetTrainerV2
@@ -587,7 +584,6 @@ class nnUNetTrainerV2_DDP(nnUNetTrainerV2):
     def compute_loss(self, output, target, is_max=False, is_c2f=False, is_sigmoid=False, is_max_hungarian=False, is_max_ds=False, point_rend=False, num_point_rend=None, no_object_weight=None):
         total_loss, smooth, do_fg = None, 1e-5, False
         if self.args.config.find('500Region') != -1:
-            assert is_sigmoid, "BraTS region should be compatible with sigmoid activation"
             smooth = 0
             do_fg = True
         

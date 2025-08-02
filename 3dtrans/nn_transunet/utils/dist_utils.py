@@ -528,6 +528,3 @@ def test_single_volume_parallel(image, label, net, classes, patch_size=[256, 256
     for i in range(1, classes):
         metric_list.append(dice_metric._dice_loss(prediction == i, label == i, dice_score=True).cpu().detach().numpy())
     return metric_list
-
-if __name__ == "__main__":
-    data_raw_convert_Synapse13_To_8("./data/btcv")

@@ -672,7 +672,6 @@ class DC_and_BCE_loss(nn.Module):
         """
         DO NOT APPLY NONLINEARITY IN YOUR NETWORK!
 
-        THIS LOSS IS INTENDED TO BE USED FOR BRATS REGIONS ONLY
         :param soft_dice_kwargs:
         :param bce_kwargs:
         :param aggregate:
